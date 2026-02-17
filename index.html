@@ -12,22 +12,6 @@
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
-<script>
-  const toggleBtn = document.getElementById("menuToggle");
-  const mobileNav = document.getElementById("mobileNav");
-
-  toggleBtn.addEventListener("click", () => {
-    mobileNav.classList.toggle("open");
-  });
-
-  // Close when clicking a link
-  document.querySelectorAll(".mnav a").forEach(link => {
-    link.addEventListener("click", () => {
-      mobileNav.classList.remove("open");
-    });
-  });
-</script>
-
 
 <body>
   <!-- Top gold announcement bar -->
@@ -199,8 +183,10 @@
         </div>
 
         <div class="diffGrid">
-          <article class="diffCard diffCard--tall" style="background-image: url(assets/sh1.jpeg);"
-            style="background-image:url('./assets/diff-left.jpg');">
+          <article class="diffCard diffCard--tall"
+              style="background-image: url(assets/sh1.jpeg);"
+              style="background-image:url('./assets/diff-left.jpg');">
+
             <div class="diffCard__shade"></div>
             <div class="diffCard__content">
               <h3>Altitude-Certified Sourcing</h3>
@@ -671,4 +657,22 @@
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("menuToggle");
+    const mobileNav = document.getElementById("mobileNav");
+
+    toggleBtn.addEventListener("click", function () {
+      mobileNav.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".mnav a").forEach(function(link){
+      link.addEventListener("click", function(){
+        mobileNav.classList.remove("open");
+      });
+    });
+  });
+</script>
+
 </html>
