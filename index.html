@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mulliri Antik</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <!-- Top gold announcement bar -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="topbar__left">
+        <span class="stars">★★★★★</span>
+        <span class="topbar__text">PREMIUM LAB-TESTED SHILAJIT</span>
+      </div>
+      <div class="topbar__right">
+        <span class="dot">•</span>
+        <span class="topbar__text">FREE SHIPPING OVER 90€</span>
+        <a class="topbar__link" href="#bestsellers">SHOP NOW</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dark header -->
+  <header class="header">
+    <div class="container header__inner">
+      <!-- Left nav -->
+      <nav class="nav nav--left" aria-label="Primary">
+        <a href="#bestsellers">SHOP</a>
+        <a href="#bundles">BUNDLES</a>
+        <a href="#difference">OUR SHILAJIT</a>
+        <a href="#know">KNOW US</a>
+        <a href="#rewards">REWARDS</a>
+      </nav>
+
+      <!-- Center logo -->
+      <a class="logo" href="#top" aria-label="Mulliri Antik Home">
+        <!-- <span class="logo__mark" aria-hidden="true"></span> -->
+         <img style="width: 70px;" src="assets/mulliri-png.png" />
+        <!-- <span class="logo__text">MULLIRI<span>ANTIK</span></span> -->
+      </a>
+
+      <!-- Right controls -->
+      <div class="header__right">
+        <!-- <button class="lang" type="button" aria-label="Language">
+          <span class="flag" aria-hidden="true"></span>
+          <span>MKD</span>
+          <span class="muted">ДЕН</span>
+          <span class="chev" aria-hidden="true">▾</span>
+        </button>
+
+        <button class="iconbtn" type="button" aria-label="Account">
+          <span class="ico ico-user" aria-hidden="true"></span>
+        </button> -->
+
+        <!-- cart removed (kept icon style as placeholder) -->
+        <!-- <button class="iconbtn" type="button" aria-label="Cart (disabled)">
+          <span class="ico ico-bag" aria-hidden="true"></span>
+          <span class="badge">0</span>
+        </button> -->
+      </div>
+
+      <!-- Mobile menu toggle -->
+      <input id="mnav" class="mnav__toggle" type="checkbox" aria-label="Open menu" />
+      <label class="mnav__burger" for="mnav" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="mnav">
+      <div class="container mnav__inner">
+        <a href="#bestsellers" onclick="document.getElementById('mnav').checked=false">SHOP</a>
+        <a href="#bundles" onclick="document.getElementById('mnav').checked=false">BUNDLES</a>
+        <a href="#difference" onclick="document.getElementById('mnav').checked=false">OUR SHILAJIT</a>
+        <a href="#know" onclick="document.getElementById('mnav').checked=false">KNOW US</a>
+        <a href="#rewards" onclick="document.getElementById('mnav').checked=false">REWARDS</a>
+        <a class="btn btn--gold" href="#contact" onclick="document.getElementById('mnav').checked=false">CONTACT</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="top">
+    <section class="hero">
+      <!-- Background image -->
+      <div class="hero__bg" role="img" aria-label="Mountain background"
+           style="background-image:url('./assets/mheader.jpeg'); background-size: cover; background-repeat: no-repeat;"></div>
+
+      <div class="hero__overlay"></div>
+
+      <div class="container hero__content">
+        <div class="hero__left">
+          <div class="ratingline">
+            <span class="stars">★★★★★</span>
+            <span><strong>4.7/5</strong> by <strong>1000+</strong> Reviews</span>
+            <span class="muted">(Over 25,000 jars delivered worldwide)</span>
+          </div>
+
+          <h1 class="hero__title">
+            Unlock The Energy<br>
+            You've Been Missing<br>
+            with the<br>
+            <span class="script">World’s Purest Shilajit</span>
+          </h1>
+
+          <div class="hero__pill">3rd Party Lab Tested, Trusted Worldwide</div>
+
+          <p class="hero__desc">
+            Mulliri Antik delivers authentic, lab-tested shilajit resin harvested from high altitudes,
+            free from additives, chemicals, and unnecessary processing. Only the purest form.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--gold" href="#bestsellers">Explore best sellers</a>
+            <a class="btn btn--ghost" href="#difference">Learn the difference</a>
+          </div>
+        </div>
+
+        <!-- <div class="hero__right"> -->
+          <!-- Product visual placeholder -->
+          <!-- <div class="hero__products"
+               style="background-image:url('./assets/hero-products.png');"
+               role="img" aria-label="Products"></div> -->
+
+          <!-- Callout pills (like in screenshot) -->
+          <!-- <div class="callout callout--top">Enhance hormonal<br>balance &amp; drive</div>
+          <div class="callout callout--bottom">Boost energy, vitality &amp;<br>mental clarity</div> -->
+        <!-- </div> -->
+      </div>
+    </section>
+
+    <!-- Floating trust bar -->
+    <section class="trustfloat">
+      <div class="container">
+        <div class="trustbar">
+          <div class="trustitem">
+            <span class="ticon ticon--lab" aria-hidden="true"></span>
+            <div>
+              <div class="trustitem__title">6+ independent lab</div>
+              <div class="trustitem__sub">certifications</div>
+            </div>
+          </div>
+
+          <div class="trustitem">
+            <span class="ticon ticon--zero" aria-hidden="true"></span>
+            <div>
+              <div class="trustitem__title">Zero synthetic filler or</div>
+              <div class="trustitem__sub">additives</div>
+            </div>
+          </div>
+
+          <div class="trustitem">
+            <span class="ticon ticon--mount" aria-hidden="true"></span>
+            <div>
+              <div class="trustitem__title">Harvested above</div>
+              <div class="trustitem__sub">3000m altitude</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications row -->
+    <!-- <section class="certs">
+      <div class="container">
+        <h2 class="sectionTitle center">Certifications</h2>
+
+        <div class="badgeRow">
+          <img src="./assets/badge-1.png" alt="Certification badge" />
+          <img src="./assets/badge-2.png" alt="Certification badge" />
+          <img src="./assets/badge-3.png" alt="Certification badge" />
+          <img src="./assets/badge-4.png" alt="Certification badge" />
+          <img src="./assets/badge-5.png" alt="Certification badge" />
+          <img src="./assets/badge-6.png" alt="Certification badge" />
+          <img src="./assets/badge-7.png" alt="Certification badge" />
+          <img src="./assets/badge-8.png" alt="Certification badge" />
+          <img src="./assets/badge-9.png" alt="Certification badge" />
+          <img src="./assets/badge-10.png" alt="Certification badge" />
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Difference section -->
+    <section id="difference" class="difference">
+      <div class="container">
+        <div class="difference__heading">
+          <div class="difference__topline">Not All Shilajit Is Equal.</div>
+          <div class="difference__script">Here’s The Difference.</div>
+        </div>
+
+        <div class="diffGrid">
+          <article class="diffCard diffCard--tall" style="background-image: url(assets/sh1.jpeg);"
+            style="background-image:url('./assets/diff-left.jpg');">
+            <div class="diffCard__shade"></div>
+            <div class="diffCard__content">
+              <h3>Altitude-Certified Sourcing</h3>
+              <p>
+                Harvested exclusively from high altitudes where pollution can’t reach and purity is guaranteed.
+              </p>
+            </div>
+          </article>
+
+          <article class="diffCard" style="background-image: url(assets/sh2.jpeg);"
+            style="background-image:url('./assets/diff-right-top.jpg');">
+            <div class="diffCard__shade"></div>
+            <div class="diffCard__content">
+              <h3>Triple-Purified &amp; Lab-Tested</h3>
+              <p>
+                Every batch undergoes multi-stage purification and independent third-party testing.
+              </p>
+              <a class="diffCard__link" href="#lab">See lab results</a>
+            </div>
+          </article>
+
+          <article class="diffCard" style="background-image: url(assets/sh3.jpeg);"
+            style="background-image:url('./assets/diff-right-bottom.jpg');">
+            <div class="diffCard__shade"></div>
+            <div class="diffCard__content">
+              <h3>Formulated by Ayurvedic Experts</h3>
+              <p>
+                Developed with researchers who study traditional Himalayan medicine and modern bioavailability science.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best sellers (dark slider feel) -->
+    <section id="bestsellers" class="bestsellers">
+      <div class="container">
+        <div class="bsHead">
+          <div>
+            <h2 class="sectionTitle white">Shop Our Best Sellers</h2>
+            <p class="sub whiteMuted">Trusted for real results, backed by science, loved by thousands.</p>
+          </div>
+
+          <!-- <div class="bsArrows" aria-hidden="true">
+            <span class="arrow">‹</span>
+            <span class="arrow">›</span>
+          </div> -->
+        </div>
+
+        <!-- CSS scroll-snap carousel -->
+        <div class="carousel" aria-label="Best sellers carousel">
+          <article class="pCard">
+            <div class="pCard__media" style="background-image:url('./assets/sh1.jpeg');">
+              <div class="pillRed">Selling fast</div>
+            </div>
+            <div class="pCard__body">
+              <div class="pCard__title">Prime</div>
+              <div class="pCard__sub">Testosterone &amp; Vitality Support</div>
+              <div class="tags">
+                <span>Focus</span><span>Vitality &amp; Strength</span><span>Libido</span>
+              </div>
+              <ul class="checks">
+                <li>Natural support for strength</li>
+                <li>Clinically-dosed ingredients</li>
+                <li>Feel better performance, focus</li>
+              </ul>
+              <a class="btn btn--gold btn--block" href="#contact">LEARN MORE</a>
+            </div>
+          </article>
+
+          <article class="pCard">
+            <div class="pCard__media" style="background-image:url('./assets/sh2.jpeg');"></div>
+            <div class="pCard__body">
+              <div class="pCard__title">Flourish</div>
+              <div class="pCard__sub">Women’s Hormonal Balance</div>
+              <div class="tags">
+                <span>Hormonal Imbalance</span>
+                <!-- <span>Mood Swings</span> -->
+                <span>Sleep</span>
+              </div>
+              <ul class="checks">
+                <li>Balances hormones naturally</li>
+                <li>Addresses imbalance at the source</li>
+                <li>Better energy, clarity/li>
+              </ul>
+              <a class="btn btn--gold btn--block" href="#contact">LEARN MORE</a>
+            </div>
+          </article>
+
+          <article class="pCard">
+            <div class="pCard__media" style="background-image:url('./assets/sh3.jpeg');"></div>
+            <div class="pCard__body">
+              <div class="pCard__title">Himalayan Shilajit</div>
+              <div class="pCard__sub">Pure Energy &amp; Vitality</div>
+              <div class="tags">
+                <span>Stress resilience</span><span>Clarity</span>
+                <!-- <span>Immune strength</span> -->
+              </div>
+              <ul class="checks">
+                <li>Harvested at high altitude</li>
+                <li>Natural energy and mental</li>
+                <li>Lab certifications verify purity</li>
+              </ul>
+              <a class="btn btn--gold btn--block" href="#contact">LEARN MORE</a>
+            </div>
+          </article>
+
+          <article class="pCard">
+            <div class="pCard__media" style="background-image:url('./assets/sh4.jpg');"></div>
+            <div class="pCard__body">
+              <div class="pCard__title">Altai Shilajit</div>
+              <div class="pCard__sub">Authentic Resin</div>
+              <div class="tags">
+                <span>Total Wellness</span><span>Energy</span><span>Minerals</span>
+              </div>
+              <ul class="checks">
+                <li>Sourced from clean regions</li>
+                <li>All-in-one daily foundation</li>
+                <li>Third-party tested batches</li>
+              </ul>
+              <a class="btn btn--gold btn--block" href="#contact">LEARN MORE</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews grid + collage -->
+    <section class="reviews">
+      <div class="container">
+        <div class="reviews__head">
+          <div class="smallTop">Real, Lasting Improvements in Energy, Focus &amp; Vitality</div>
+          <h2 class="bigTitle">Over 10,000 People Made a Shift</h2>
+        </div>
+
+        <div class="reviews__grid">
+          <div class="reviewCard reviewCard--tall">
+            <div class="reviewCard__top">
+              <div class="avatar">M</div>
+              <div>
+                <div class="rname">Arbi</div>
+                <div class="rdate">on October 2, 2025</div>
+              </div>
+            </div>
+            <div class="rstars">★★★★★</div>
+            <div class="rtitle">Flourish is amazing</div>
+            <p class="rtext">
+              Flourish is amazing like magic. Bought it for my mother… after she started using it she gained more energy
+              and started training again…
+            </p>
+          </div>
+
+          <div class="stack">
+            <div class="reviewCard">
+              <div class="reviewCard__top">
+                <div class="avatar">JU</div>
+                <div>
+                  <div class="rname">Juraime</div>
+                  <div class="rdate">on October 4, 2025</div>
+                </div>
+              </div>
+              <div class="rstars">★★★★★</div>
+              <div class="rtitle">Good job I can feel the effect</div>
+              <p class="rtext">Good job I can feel the effect, thanks a lot.</p>
+            </div>
+
+            <div class="reviewCard">
+              <div class="reviewCard__top">
+                <div class="avatar imgAvatar" style="background-image:url('./assets/reviewer.jpg');"></div>
+                <div>
+                  <div class="rname">Big Mo</div>
+                  <div class="rdate">on September 24, 2024</div>
+                </div>
+              </div>
+              <div class="rstars">★★★★★</div>
+              <div class="rtitle">THE BEST</div>
+              <p class="rtext">
+                The quality is top notch. Highly trustworthy. I’ve noticed changes and benefits unlike other brands.
+              </p>
+            </div>
+          </div>
+
+          <div class="collage" style="background-image:url('assets/sh5.jpeg');" aria-label="Customer collage"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top 3 Bundles strip -->
+    <section id="bundles" class="bundles">
+      <div class="container bundles__inner">
+        <div class="bundleLeft">
+          <div class="bundleBrand">MULLIRI<span>ANTIK</span></div>
+          <div class="bundleBig">TOP 3<br><span>BUNDLES</span></div>
+          <div class="bundleSave">
+            <span class="saveBlack">SAVE<br>UP TO</span>
+            <span class="saveGold">28% OFF</span>
+          </div>
+        </div>
+
+        <div class="bundleCards">
+          <div class="bundleCard">
+            <div class="bundleCard__title">Power Couple</div>
+            <div class="bundleCard__img" style="background-image:url('./assets/sh6.jpeg');"></div>
+            <a class="btn btn--gold btn--wide" href="#contact">LEARN MORE</a>
+          </div>
+
+          <div class="bundleCard">
+            <div class="bundleCard__title">Testosterone Titan</div>
+            <div class="bundleCard__img" style="background-image:url('./assets/sh7.jpeg');"></div>
+            <a class="btn btn--gold btn--wide" href="#contact">LEARN MORE</a>
+          </div>
+
+          <div class="bundleCard">
+            <div class="bundleCard__title">Feminine Revival</div>
+            <div class="bundleCard__img" style="background-image:url('./assets/sh8.jpeg');"></div>
+            <a class="btn btn--gold btn--wide" href="#contact">LEARN MORE</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reasons section with accordion -->
+    <section class="reasons" id="know" style="background-image: url(assets/sh9.jpeg); background-size: contain; background-repeat: no-repeat; background-position: left;">
+      <div class="container reasons__grid">
+        <div class="reasons__img"  aria-label="Hand holding shilajit"></div>
+
+        <div class="reasons__content">
+          <h2 class="sectionTitle white">5 Reasons Why People are Switching to Mulliri Antik</h2>
+
+          <div class="acc">
+            <details open>
+              <summary><span>1. Harvested where purity is guaranteed</span></summary>
+              <div class="acc__body">
+                Our shilajit comes from high altitudes where pollution can’t reach and authenticity can be verified.
+              </div>
+            </details>
+
+            <details>
+              <summary><span>2. Triple-tested for what matters most</span></summary>
+              <div class="acc__body">
+                Purity, safety markers, and batch consistency checks for confidence over time.
+              </div>
+            </details>
+
+            <details>
+              <summary><span>3. The same substance used for 3,000 years</span></summary>
+              <div class="acc__body">
+                Traditional use with modern testing and transparent documentation.
+              </div>
+            </details>
+
+            <details>
+              <summary><span>4. Formulated using traditional Ayurvedic wisdom</span></summary>
+              <div class="acc__body">
+                Guided by experts and practical routines—built for consistency, not hype.
+              </div>
+            </details>
+
+            <details>
+              <summary><span>5. Try it risk-free with our 50-Day Guarantee</span></summary>
+              <div class="acc__body">
+                A clear policy that gives enough time to actually evaluate the routine.
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <div class="container statsDock">
+        <div class="statsDock__inner">
+          <div class="statBox">
+            <div class="statNum">85+</div>
+            <div class="statLabel">Beneficial Nutrients</div>
+          </div>
+          <div class="statBox">
+            <div class="statNum">53+</div>
+            <div class="statLabel">DBP &amp; DCP</div>
+          </div>
+          <div class="statBox">
+            <div class="statNum">18+</div>
+            <div class="statLabel">Amino Acids</div>
+          </div>
+          <div class="statBox">
+            <div class="statNum">Rich in</div>
+            <div class="statLabel">Fulvic Acid</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- International certifications tabs section -->
+    <!-- <section class="certTabs" id="lab">
+      <div class="container">
+        <h2 class="bigTitle">International Certifications Back Every Jar We Make.</h2>
+        <p class="sub">
+          Every batch meets high quality purity standards, verified by independent certification bodies.
+        </p>
+
+        <div class="tabs">
+          <button class="tab active" type="button">GMP Certification</button>
+          <button class="tab" type="button">HACCP Certification</button>
+          <button class="tab" type="button">IFS Certification</button>
+          <button class="tab" type="button">ISO 9001:2015 Quality Management</button>
+        </div>
+
+        <div class="tabPanel">
+          <div class="tabPanel__left">
+            <h3>GMP Certification</h3>
+            <div class="tabPanel__small">Higher Level HACCP Approved</div>
+            <p>
+              Our manufacturing facility holds GMP (Good Manufacturing Practice) certification, ensuring strict quality
+              and safety protocols across production steps.
+            </p>
+          </div>
+
+          <div class="tabPanel__right">
+            <div class="seal" style="background-image:url('./assets/gmp-seal.png');" aria-label="GMP seal"></div>
+            <div class="doc" style="background-image:url('./assets/certificate.png');" aria-label="Certificate document"></div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Icon row -->
+    <section class="iconRow" id="rewards">
+      <div class="container iconRow__inner">
+        <div class="iconItem" style="display: flex;flex-direction: column;align-items: center;">
+          <div><img src="assets/i1.jpeg" style="width: 90px;"/></div>
+          <div class="iconTitle">✓ Harvested Above<br>3000m</div>
+          <div class="iconSub">Altitude-Certified<br>Purity</div>
+        </div>
+
+        <div class="iconItem" style="display: flex;flex-direction: column;align-items: center;">
+          <div><img src="assets/i2.jpeg" style="width: 52px;"/></div>
+          <div class="iconTitle">✓ Triple Lab<br>Tested</div>
+          <div class="iconSub">Heavy Metals<br>Verified Safe</div>
+        </div>
+
+        <div class="iconItem" style="display: flex;flex-direction: column;align-items: center;">
+          <div><img style="width: 61px;" src="assets/i3.jpeg" /></div>
+          <div class="iconTitle">✓ 85+ Trace<br>Minerals</div>
+          <div class="iconSub">Full-Spectrum<br>Bioavailability</div>
+        </div>
+
+        <div class="iconItem" style="display: flex;flex-direction: column;align-items: center;">
+          <div  ><img style="width: 69px;" src="assets/i4.jpeg" /></div>
+          <div class="iconTitle">✓ Zero Synthetic Fillers</div>
+          <div class="iconSub">Pure Resin,<br>Nothing Added</div>
+        </div>
+
+        <div class="iconItem" style="display: flex;flex-direction: column;align-items: center;">
+          <div><img style="width: 66px;" src="assets/i5.jpeg" /></div>
+          <div class="iconTitle">✓ Traditional Ayurvedic<br>Process</div>
+          <div class="iconSub">3,000 Years of<br>Proven Use</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact + footer -->
+    <section id="contact" class="contact">
+      <div class="contact__bg" style="background-image:url('./assets/sh10.jpeg');"></div>
+      <div class="contact__shade"></div>
+
+      <div class="container contact__inner">
+        <div class="contact__left">
+          <h2>Contact us</h2>
+          <p>We'll be happy to help!</p>
+        </div>
+
+        <form class="contactForm" action="mailto:mulliriantik1961@gmail.com" method="POST" enctype="text/plain">
+          <div class="row2">
+            <label>
+              <span>First Name</span>
+              <input name="First Name" required />
+            </label>
+
+            <label>
+                <span>Last Name</span>
+                <input name="Last Name" required />
+            </label>
+          </div>
+
+            <label>
+            <span>Email*</span>
+            <input name="Email" type="email" required />
+            </label>
+
+            <label>
+            <span>Subject</span>
+            <select name="Subject">
+                <option>Please Select</option>
+                <option>Product question</option>
+                <option>Wholesale / Distributor</option>
+                <option>Lab results</option>
+                <option>Other</option>
+            </select>
+            </label>
+
+            <label>
+            <span>Message*</span>
+            <textarea name="Message" rows="5" required></textarea>
+            </label>
+
+            <button class="btn btn--darkwide" type="submit">Submit</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__top">
+        <div class="footBrand">
+          <div class="footSeal" style="background-image:url('./assets/mulliri-png.png');"></div>
+          <p>
+            We source and deliver authentic shilajit of the highest quality and produce natural wellness products based on
+            this marvelous superfood.
+          </p>
+
+          <!-- <div class="social">
+            <a href="#" aria-label="Instagram" class="soc">◎</a>
+            <a href="#" aria-label="Facebook" class="soc">f</a>
+            <a href="#" aria-label="LinkedIn" class="soc">in</a>
+            <a href="#" aria-label="Pinterest" class="soc">p</a>
+            <a href="#" aria-label="YouTube" class="soc">▶</a>
+          </div> -->
+        </div>
+
+        <div class="footCol">
+          <h4>About</h4>
+          <!-- <a href="#know">Our Story</a> -->
+          <a href="#difference">Our Shilajit</a>
+          <!-- <a href="#how">How to use</a> -->
+          <!-- <a href="#blog">Our Blog</a> -->
+          <a href="#contact">Contact us</a>
+          <span>078-286-451</span>
+        </div>
+
+        <div class="footCol">
+          <h4>Store</h4>
+          <a href="#bestsellers">Shop</a>
+          <!-- <a href="#" aria-disabled="true">Login</a> -->
+          <!-- <a href="#" aria-disabled="true">Register</a> -->
+          <!-- <a href="#faq">FAQ</a> -->
+        </div>
+
+        <!-- <div class="footMidLogo" aria-hidden="true">
+          <div class="midLogo__mark"></div>
+          <div class="midLogo__text">MULLIRI<span>ANTIK</span></div>
+        </div> -->
+
+        <!-- <div class="footLinks">
+          <a href="#" class="bigLink">See our distributors</a>
+          <a href="#" class="smallLink">Privacy Policy</a>
+          <a href="#" class="smallLink">Terms, Conditions &amp; Agreements</a>
+        </div> -->
+      </div>
+
+      <div class="container footer__bottom">
+        <span>© <span id="y"></span> Mulliri Antik</span>
+        <!-- <span class="muted">No payments • No cart • No checkout</span> -->
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
