@@ -254,6 +254,7 @@ img{ max-width:100%; display:block; }
 
 /* Mobile Nav */
 .mnav{
+  display: none;
   max-height:0;
   overflow:hidden;
   background:#101010;
@@ -1057,19 +1058,26 @@ img{ max-width:100%; display:block; }
 
 @media (max-width: 900px){
 
+  /* Fshi navbar horizontal */
   .nav{
     display:none;
   }
 
+  /* Fshi ikonat e djathta */
   .header__right{
     display:none;
   }
 
+  /* Shfaq burger button */
   .mnav__burger{
     display:flex;
     justify-self:end;
   }
 
+  /* Mobile nav */
+  .mnav{
+    display:block;
+  }
 }
 
 /* Responsive */
