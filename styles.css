@@ -1024,6 +1024,17 @@ img{ max-width:100%; display:block; }
   color:#2b2b2b;
 }
 
+.email-link{
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.email-link:hover{
+  opacity: 0.8;
+}
+
 /* Responsive */
 @media (max-width: 1100px){
   .nav{ gap: 22px; }
