@@ -174,19 +174,19 @@
       </div>
     </section> -->
 
-    <!-- Difference section -->
     <section id="difference" class="difference">
+      <div class="bg-blur"></div>
+
       <div class="container">
         <div class="difference__heading">
           <div class="difference__topline">Not All Shilajit Is Equal.</div>
           <div class="difference__script">Here’s The Difference.</div>
         </div>
-
+    
         <div class="diffGrid">
+    
           <article class="diffCard diffCard--tall"
-              style="background-image: url(assets/sh1.jpeg);"
-              style="background-image:url('./assets/diff-left.jpg');">
-
+            style="background-image:url('assets/sh1.jpeg');">
             <div class="diffCard__shade"></div>
             <div class="diffCard__content">
               <h3>Altitude-Certified Sourcing</h3>
@@ -195,9 +195,9 @@
               </p>
             </div>
           </article>
-
-          <article class="diffCard" style="background-image: url(assets/sh2.jpeg);"
-            style="background-image:url('./assets/diff-right-top.jpg');">
+    
+          <article class="diffCard"
+            style="background-image:url('assets/sh2.jpeg');">
             <div class="diffCard__shade"></div>
             <div class="diffCard__content">
               <h3>Triple-Purified &amp; Lab-Tested</h3>
@@ -207,9 +207,9 @@
               <a class="diffCard__link" href="#lab">See lab results</a>
             </div>
           </article>
-
-          <article class="diffCard" style="background-image: url(assets/sh3.jpeg);"
-            style="background-image:url('./assets/diff-right-bottom.jpg');">
+    
+          <article class="diffCard"
+            style="background-image:url('assets/sh3.jpeg');">
             <div class="diffCard__shade"></div>
             <div class="diffCard__content">
               <h3>Formulated by Ayurvedic Experts</h3>
@@ -218,9 +218,13 @@
               </p>
             </div>
           </article>
+    
         </div>
       </div>
+    
     </section>
+    
+    
 
     <!-- Best sellers (dark slider feel) -->
     <section id="bestsellers" class="bestsellers">
@@ -660,30 +664,74 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+  
+    /* =====================================
+       MOBILE MENU
+    ====================================== */
+  
     const toggleBtn = document.getElementById("menuToggle");
     const mobileNav = document.getElementById("mobileNav");
-
-    // Toggle me klik
-    toggleBtn.addEventListener("click", function () {
-      mobileNav.classList.toggle("open");
-    });
-
-    // Mbyll kur klikon një link
-    document.querySelectorAll(".mnav a").forEach(function(link){
-      link.addEventListener("click", function(){
-        mobileNav.classList.remove("open");
+  
+    if (toggleBtn && mobileNav) {
+  
+      toggleBtn.addEventListener("click", function () {
+        mobileNav.classList.toggle("open");
       });
-    });
-
-    // RESET kur kalon në desktop (>900px)
-    window.addEventListener("resize", function(){
-      if (window.innerWidth > 900) {
-        mobileNav.classList.remove("open");
+  
+      // Mbyll kur klikon link
+      document.querySelectorAll("#mobileNav a").forEach(function(link){
+        link.addEventListener("click", function(){
+          mobileNav.classList.remove("open");
+        });
+      });
+  
+      // Reset kur kalon në desktop
+      window.addEventListener("resize", function(){
+        if (window.innerWidth > 900) {
+          mobileNav.classList.remove("open");
+        }
+      });
+    }
+  
+  
+    /* =====================================
+       BACKGROUND SLIDER (FIXED VERSION)
+    ====================================== */
+  
+    const bg = document.getElementById("bgSlider");
+  
+    if (bg) {
+  
+      const images = [
+        "assets/mulliri1.jpg",
+        "assets/mulliri2.jpg",
+        "assets/mulliri3.jpg"
+      ];
+  
+      let index = 0;
+  
+      // Vendos background menjëherë (mos le gri)
+      bg.style.backgroundImage = "url('" + images[0] + "')";
+      bg.style.opacity = "1";
+  
+      function changeBackground(){
+  
+        index = (index + 1) % images.length;
+  
+        bg.style.transition = "opacity 0.8s ease-in-out";
+        bg.style.opacity = "0";
+  
+        setTimeout(function(){
+          bg.style.backgroundImage = "url('" + images[index] + "')";
+          bg.style.opacity = "1";
+        }, 800);
       }
-    });
-
+  
+      setInterval(changeBackground, 6000);
+    }
+  
   });
-</script>
-
+  </script>
+  
 
 </html>
