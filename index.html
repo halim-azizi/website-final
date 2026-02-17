@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
+
 <body>
 
   <div class="topbar">
@@ -34,14 +35,21 @@
 
   <header class="header">
     <div class="container header__inner">
+<<<<<<< HEAD
 
       <nav class="nav nav--left" aria-label="Primary">
+=======
+  
+      <!-- LEFT NAV (Desktop) -->
+      <nav class="nav nav--left">
+>>>>>>> 04391cf96ee1e7135a8bfd7d813064c18410b38a
         <a href="#bestsellers">SHOP</a>
         <a href="#bundles">BUNDLES</a>
         <a href="#difference">OUR SHILAJIT</a>
         <a href="#know">KNOW US</a>
         <a href="#rewards">REWARDS</a>
       </nav>
+<<<<<<< HEAD
 
 
       <a class="logo" href="#top" aria-label="Mulliri Antik Home">
@@ -67,16 +75,39 @@
 
 
     <div class="mnav">
+=======
+  
+      <!-- CENTER LOGO -->
+      <a class="logo" href="#top">
+        <img style="width:70px;" src="assets/mulliri-png.png" />
+      </a>
+  
+      <!-- RIGHT SIDE (Desktop only) -->
+      <div class="header__right"></div>
+  
+      <!-- MOBILE BURGER -->
+      <button class="mnav__burger" id="menuToggle" aria-label="Open Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+  
+    </div>
+  
+    <!-- MOBILE DROPDOWN -->
+    <div class="mnav" id="mobileNav">
+>>>>>>> 04391cf96ee1e7135a8bfd7d813064c18410b38a
       <div class="container mnav__inner">
-        <a href="#bestsellers" onclick="document.getElementById('mnav').checked=false">SHOP</a>
-        <a href="#bundles" onclick="document.getElementById('mnav').checked=false">BUNDLES</a>
-        <a href="#difference" onclick="document.getElementById('mnav').checked=false">OUR SHILAJIT</a>
-        <a href="#know" onclick="document.getElementById('mnav').checked=false">KNOW US</a>
-        <a href="#rewards" onclick="document.getElementById('mnav').checked=false">REWARDS</a>
-        <a class="btn btn--gold" href="#contact" onclick="document.getElementById('mnav').checked=false">CONTACT</a>
+        <a href="#bestsellers">SHOP</a>
+        <a href="#bundles">BUNDLES</a>
+        <a href="#difference">OUR SHILAJIT</a>
+        <a href="#know">KNOW US</a>
+        <a href="#rewards">REWARDS</a>
+        <a class="btn btn--gold" href="#contact">CONTACT</a>
       </div>
     </div>
   </header>
+  
 
 
   <main id="top">
@@ -159,18 +190,29 @@
 
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 04391cf96ee1e7135a8bfd7d813064c18410b38a
     <section id="difference" class="difference">
+      <div class="bg-blur"></div>
+
       <div class="container">
         <div class="difference__heading">
           <div class="difference__topline">Not All Shilajit Is Equal.</div>
           <div class="difference__script">Here’s The Difference.</div>
         </div>
-
+    
         <div class="diffGrid">
+<<<<<<< HEAD
           <article class="diffCard diffCard--tall reveal-left" style="background-image: url(assets/sh1.jpeg);"
             style="background-image:url('./assets/diff-left.jpg');">
+=======
+    
+          <article class="diffCard diffCard--tall"
+            style="background-image:url('assets/sh1.jpeg');">
+>>>>>>> 04391cf96ee1e7135a8bfd7d813064c18410b38a
             <div class="diffCard__shade"></div>
             <div class="diffCard__content">
               <h3>Altitude-Certified Sourcing</h3>
@@ -179,9 +221,15 @@
               </p>
             </div>
           </article>
+<<<<<<< HEAD
 
           <article class="diffCard reveal-right stagger-1" style="background-image: url(assets/sh2.jpeg);"
             style="background-image:url('./assets/diff-right-top.jpg');">
+=======
+    
+          <article class="diffCard"
+            style="background-image:url('assets/sh2.jpeg');">
+>>>>>>> 04391cf96ee1e7135a8bfd7d813064c18410b38a
             <div class="diffCard__shade"></div>
             <div class="diffCard__content">
               <h3>Triple-Purified &amp; Lab-Tested</h3>
@@ -191,9 +239,15 @@
               <a class="diffCard__link" href="#lab">See lab results</a>
             </div>
           </article>
+<<<<<<< HEAD
 
           <article class="diffCard reveal-right stagger-2" style="background-image: url(assets/sh3.jpeg);"
             style="background-image:url('./assets/diff-right-bottom.jpg');">
+=======
+    
+          <article class="diffCard"
+            style="background-image:url('assets/sh3.jpeg');">
+>>>>>>> 04391cf96ee1e7135a8bfd7d813064c18410b38a
             <div class="diffCard__shade"></div>
             <div class="diffCard__content">
               <h3>Formulated by Ayurvedic Experts</h3>
@@ -202,9 +256,13 @@
               </p>
             </div>
           </article>
+    
         </div>
       </div>
+    
     </section>
+    
+    
 
 
     <section id="bestsellers" class="bestsellers">
@@ -618,5 +676,77 @@
     animatedElements.forEach(el => observer.observe(el));
   </script>
 </body>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  
+    /* =====================================
+       MOBILE MENU
+    ====================================== */
+  
+    const toggleBtn = document.getElementById("menuToggle");
+    const mobileNav = document.getElementById("mobileNav");
+  
+    if (toggleBtn && mobileNav) {
+  
+      toggleBtn.addEventListener("click", function () {
+        mobileNav.classList.toggle("open");
+      });
+  
+      // Mbyll kur klikon link
+      document.querySelectorAll("#mobileNav a").forEach(function(link){
+        link.addEventListener("click", function(){
+          mobileNav.classList.remove("open");
+        });
+      });
+  
+      // Reset kur kalon në desktop
+      window.addEventListener("resize", function(){
+        if (window.innerWidth > 900) {
+          mobileNav.classList.remove("open");
+        }
+      });
+    }
+  
+  
+    /* =====================================
+       BACKGROUND SLIDER (FIXED VERSION)
+    ====================================== */
+  
+    const bg = document.getElementById("bgSlider");
+  
+    if (bg) {
+  
+      const images = [
+        "assets/mulliri1.jpg",
+        "assets/mulliri2.jpg",
+        "assets/mulliri3.jpg"
+      ];
+  
+      let index = 0;
+  
+      // Vendos background menjëherë (mos le gri)
+      bg.style.backgroundImage = "url('" + images[0] + "')";
+      bg.style.opacity = "1";
+  
+      function changeBackground(){
+  
+        index = (index + 1) % images.length;
+  
+        bg.style.transition = "opacity 0.8s ease-in-out";
+        bg.style.opacity = "0";
+  
+        setTimeout(function(){
+          bg.style.backgroundImage = "url('" + images[index] + "')";
+          bg.style.opacity = "1";
+        }, 800);
+      }
+  
+      setInterval(changeBackground, 6000);
+    }
+  
+  });
+  </script>
+  
 
 </html>
