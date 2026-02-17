@@ -12,6 +12,23 @@
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
+<script>
+  const toggleBtn = document.getElementById("menuToggle");
+  const mobileNav = document.getElementById("mobileNav");
+
+  toggleBtn.addEventListener("click", () => {
+    mobileNav.classList.toggle("open");
+  });
+
+  // Close when clicking a link
+  document.querySelectorAll(".mnav a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileNav.classList.remove("open");
+    });
+  });
+</script>
+
+
 <body>
   <!-- Top gold announcement bar -->
   <div class="topbar">
@@ -31,61 +48,46 @@
   <!-- Dark header -->
   <header class="header">
     <div class="container header__inner">
-      <!-- Left nav -->
-      <nav class="nav nav--left" aria-label="Primary">
+  
+      <!-- LEFT NAV (Desktop) -->
+      <nav class="nav nav--left">
         <a href="#bestsellers">SHOP</a>
         <a href="#bundles">BUNDLES</a>
         <a href="#difference">OUR SHILAJIT</a>
         <a href="#know">KNOW US</a>
         <a href="#rewards">REWARDS</a>
       </nav>
-
-      <!-- Center logo -->
-      <a class="logo" href="#top" aria-label="Mulliri Antik Home">
-        <!-- <span class="logo__mark" aria-hidden="true"></span> -->
-         <img style="width: 70px;" src="assets/mulliri-png.png" />
-        <!-- <span class="logo__text">MULLIRI<span>ANTIK</span></span> -->
+  
+      <!-- CENTER LOGO -->
+      <a class="logo" href="#top">
+        <img style="width:70px;" src="assets/mulliri-png.png" />
       </a>
-
-      <!-- Right controls -->
-      <div class="header__right">
-        <!-- <button class="lang" type="button" aria-label="Language">
-          <span class="flag" aria-hidden="true"></span>
-          <span>MKD</span>
-          <span class="muted">ДЕН</span>
-          <span class="chev" aria-hidden="true">▾</span>
-        </button>
-
-        <button class="iconbtn" type="button" aria-label="Account">
-          <span class="ico ico-user" aria-hidden="true"></span>
-        </button> -->
-
-        <!-- cart removed (kept icon style as placeholder) -->
-        <!-- <button class="iconbtn" type="button" aria-label="Cart (disabled)">
-          <span class="ico ico-bag" aria-hidden="true"></span>
-          <span class="badge">0</span>
-        </button> -->
-      </div>
-
-      <!-- Mobile menu toggle -->
-      <input id="mnav" class="mnav__toggle" type="checkbox" aria-label="Open menu" />
-      <label class="mnav__burger" for="mnav" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </label>
+  
+      <!-- RIGHT SIDE (Desktop only) -->
+      <div class="header__right"></div>
+  
+      <!-- MOBILE BURGER -->
+      <button class="mnav__burger" id="menuToggle" aria-label="Open Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+  
     </div>
-
-    <!-- Mobile drawer -->
-    <div class="mnav">
+  
+    <!-- MOBILE DROPDOWN -->
+    <div class="mnav" id="mobileNav">
       <div class="container mnav__inner">
-        <a href="#bestsellers" onclick="document.getElementById('mnav').checked=false">SHOP</a>
-        <a href="#bundles" onclick="document.getElementById('mnav').checked=false">BUNDLES</a>
-        <a href="#difference" onclick="document.getElementById('mnav').checked=false">OUR SHILAJIT</a>
-        <a href="#know" onclick="document.getElementById('mnav').checked=false">KNOW US</a>
-        <a href="#rewards" onclick="document.getElementById('mnav').checked=false">REWARDS</a>
-        <a class="btn btn--gold" href="#contact" onclick="document.getElementById('mnav').checked=false">CONTACT</a>
+        <a href="#bestsellers">SHOP</a>
+        <a href="#bundles">BUNDLES</a>
+        <a href="#difference">OUR SHILAJIT</a>
+        <a href="#know">KNOW US</a>
+        <a href="#rewards">REWARDS</a>
+        <a class="btn btn--gold" href="#contact">CONTACT</a>
       </div>
     </div>
   </header>
+  
 
   <!-- HERO -->
   <main id="top">
