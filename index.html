@@ -174,9 +174,12 @@
       </div>
     </section> -->
 
+    <!-- Difference section -->
     <section id="difference" class="difference">
-      <div class="bg-blur"></div>
 
+      <!-- Background Slider -->
+      <div id="bgSlider" class="bg-slide"></div>
+    
       <div class="container">
         <div class="difference__heading">
           <div class="difference__topline">Not All Shilajit Is Equal.</div>
@@ -221,9 +224,7 @@
     
         </div>
       </div>
-    
     </section>
-    
     
 
     <!-- Best sellers (dark slider feel) -->
@@ -664,74 +665,27 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-  
-    /* =====================================
-       MOBILE MENU
-    ====================================== */
-  
     const toggleBtn = document.getElementById("menuToggle");
     const mobileNav = document.getElementById("mobileNav");
-  
-    if (toggleBtn && mobileNav) {
-  
-      toggleBtn.addEventListener("click", function () {
-        mobileNav.classList.toggle("open");
+
+    toggleBtn.addEventListener("click", function () {
+      mobileNav.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".mnav a").forEach(function(link){
+      link.addEventListener("click", function(){
+        mobileNav.classList.remove("open");
       });
-  
-      // Mbyll kur klikon link
-      document.querySelectorAll("#mobileNav a").forEach(function(link){
-        link.addEventListener("click", function(){
-          mobileNav.classList.remove("open");
-        });
-      });
-  
-      // Reset kur kalon në desktop
-      window.addEventListener("resize", function(){
-        if (window.innerWidth > 900) {
-          mobileNav.classList.remove("open");
-        }
-      });
-    }
-  
-  
-    /* =====================================
-       BACKGROUND SLIDER (FIXED VERSION)
-    ====================================== */
-  
-    const bg = document.getElementById("bgSlider");
-  
-    if (bg) {
-  
-      const images = [
-        "assets/mulliri1.jpg",
-        "assets/mulliri2.jpg",
-        "assets/mulliri3.jpg"
-      ];
-  
-      let index = 0;
-  
-      // Vendos background menjëherë (mos le gri)
-      bg.style.backgroundImage = "url('" + images[0] + "')";
-      bg.style.opacity = "1";
-  
-      function changeBackground(){
-  
-        index = (index + 1) % images.length;
-  
-        bg.style.transition = "opacity 0.8s ease-in-out";
-        bg.style.opacity = "0";
-  
-        setTimeout(function(){
-          bg.style.backgroundImage = "url('" + images[index] + "')";
-          bg.style.opacity = "1";
-        }, 800);
+    });
+
+    window.addEventListener("resize", function(){
+      if (window.innerWidth > 900) {
+        mobileNav.classList.remove("open");
       }
-  
-      setInterval(changeBackground, 6000);
-    }
-  
+    });
+
   });
-  </script>
-  
+</script>
+
 
 </html>
