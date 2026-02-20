@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Your Cart - Mulliri Antik</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+        .cart-section {
+            background: #050506;
+            color: #fff;
+            min-height: 80vh;
+            padding: 60px 0;
+        }
+
+        .cart-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 40px;
+        }
+
+        @media (max-width: 900px) {
+            .cart-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 100px 1fr auto auto;
+            gap: 20px;
+            align-items: center;
+            background: #101012;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .cart-item-info h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .cart-item-info p {
+            margin: 5px 0;
+            color: var(--muted);
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .qty-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cart-item-price {
+            font-weight: 900;
+            font-size: 18px;
+            color: var(--gold);
+        }
+
+        .cart-summary {
+            background: #101012;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--gold);
+            height: fit-content;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .summary-total {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--gold);
+        }
+
+        .stripe-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: #635bff;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .empty-cart h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container header__inner">
+            <nav class="nav nav--left">
+                <a href="products.html">SHOP</a>
+                <a href="index.html#bundles">BUNDLES</a>
+                <a href="index.html#difference">OUR SHILAJIT</a>
+            </nav>
+            <a class="logo" href="index.html">
+                <img style="width:70px;" src="assets/mulliri-png.png" />
+            </a>
+            <div class="header__right">
+                <a href="cart.html" class="iconbtn cart-btn">
+                    <span class="ico ico-bag"></span>
+                    <span class="badge" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="cart-section">
+            <div class="container">
+                <h1>Your Shopping Cart</h1>
+
+                <div id="cartContent" class="cart-container">
+                    <!-- JS will populate this -->
+                </div>
+
+                <div id="emptyCart" class="empty-cart" style="display: none;">
+                    <h2>Your cart is empty</h2>
+                    <p>Seems like you haven't added any pure shilajit yet.</p>
+                    <a href="products.html" class="btn btn--gold">Browse Products</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__bottom" style="display:flex; justify-content:space-between; align-items:center;">
+            <span>© Mulliri Antik</span>
+            <a href="admin-history.html" style="opacity: 0.3; font-size: 10px;">Admin History</a>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            renderCart();
+        });
+
+        function renderCart() {
+            const cart = getCart();
+            const content = document.getElementById('cartContent');
+            const empty = document.getElementById('emptyCart');
+
+            if (cart.length === 0) {
+                content.style.display = 'none';
+                empty.style.display = 'block';
+                return;
+            }
+
+            content.style.display = 'grid';
+            empty.style.display = 'none';
+
+            let subtotal = 0;
+            let itemsHtml = '<div class="cart-items">';
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                itemsHtml += `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}">
+                <div class="cart-item-info">
+                    <h3>${item.name}</h3>
+                    <p>${item.price.toFixed(2)}€ / unit</p>
+                    <button onclick="removeItem(${index})" style="background:none; border:none; color:#ff4d4d; cursor:pointer; padding:0; font-size:12px;">Remove</button>
+                </div>
+                <div class="cart-item-quantity">
+                    <button class="qty-btn" onclick="updateQty(${index}, -1)">-</button>
+                    <span>${item.quantity}</span>
+                    <button class="qty-btn" onclick="updateQty(${index}, 1)">+</button>
+                </div>
+                <div class="cart-item-price">${itemTotal.toFixed(2)}€</div>
+            </div>`;
+            });
+
+            itemsHtml += '</div>';
+
+            const shipping = subtotal > 90 ? 0 : 5.99;
+            const total = subtotal + shipping;
+
+            const summaryHtml = `
+            <div class="cart-summary">
+                <h3>Order Summary</h3>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>${subtotal.toFixed(2)}€</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>${shipping === 0 ? 'FREE' : shipping.toFixed(2) + '€'}</span>
+                </div>
+                <div class="summary-total">
+                    <div class="summary-row">
+                        <span>Total</span>
+                        <span>${total.toFixed(2)}€</span>
+                    </div>
+                </div>
+                <button class="stripe-btn" onclick="handleCheckout()">
+                    Pay with Card (Stripe)
+                </button>
+                <p style="font-size: 10px; color: var(--muted); margin-top: 15px; text-align: center;">
+                    Secure encrypted payment powered by Stripe
+                </p>
+            </div>`;
+
+            content.innerHTML = itemsHtml + summaryHtml;
+        }
+
+        function updateQty(index, delta) {
+            const cart = getCart();
+            cart[index].quantity += delta;
+            if (cart[index].quantity < 1) cart[index].quantity = 1;
+            saveCart(cart);
+            renderCart();
+        }
+
+        function removeItem(index) {
+            const cart = getCart();
+            cart.splice(index, 1);
+            saveCart(cart);
+            renderCart();
+        }
+
+        function handleCheckout() {
+            const cart = getCart();
+            if (cart.length === 0) return;
+
+            let subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+            const shipping = subtotal > 90 ? 0 : 5.99;
+            const total = subtotal + shipping;
+
+            alert("Processing Payment with Stripe...\n(API key missing)");
+
+            // Simulate successful transaction recording
+            recordTransaction(cart, total);
+
+            alert("Payment Successful! Your order has been recorded in the history.");
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>

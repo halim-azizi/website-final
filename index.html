@@ -27,7 +27,7 @@
       <div class="topbar__right">
         <span class="dot">•</span>
         <span class="topbar__text">FREE SHIPPING OVER 90€</span>
-        <a class="topbar__link" href="#bestsellers">SHOP NOW</a>
+        <a class="topbar__link" href="products.html">SHOP NOW</a>
       </div>
     </div>
   </div>
@@ -35,37 +35,42 @@
 
   <header class="header">
     <div class="container header__inner">
-  
+
       <!-- LEFT NAV (Desktop) -->
       <nav class="nav nav--left">
-        <a href="#bestsellers">SHOP</a>
+        <a href="products.html">SHOP</a>
         <a href="#bundles">BUNDLES</a>
         <a href="#difference">OUR SHILAJIT</a>
         <a href="#know">KNOW US</a>
         <a href="#rewards">REWARDS</a>
       </nav>
-  
+
       <!-- CENTER LOGO -->
       <a class="logo" href="#top">
         <img style="width:70px;" src="assets/mulliri-png.png" />
       </a>
-  
+
       <!-- RIGHT SIDE (Desktop only) -->
-      <div class="header__right"></div>
-  
+      <div class="header__right">
+        <a href="cart.html" class="iconbtn cart-btn" id="cartBtn">
+          <span class="ico ico-bag"></span>
+          <span class="badge" id="cartCount">0</span>
+        </a>
+      </div>
+
       <!-- MOBILE BURGER -->
       <button class="mnav__burger" id="menuToggle" aria-label="Open Menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
-  
+
     </div>
-  
+
     <!-- MOBILE DROPDOWN -->
     <div class="mnav" id="mobileNav">
       <div class="container mnav__inner">
-        <a href="#bestsellers">SHOP</a>
+        <a href="products.html">SHOP</a>
         <a href="#bundles">BUNDLES</a>
         <a href="#difference">OUR SHILAJIT</a>
         <a href="#know">KNOW US</a>
@@ -74,7 +79,7 @@
       </div>
     </div>
   </header>
-  
+
 
 
   <main id="top">
@@ -155,62 +160,59 @@
       </div>
     </section>
 
-<!-- Difference Section -->
-<section id="difference" class="difference">
+    <!-- Difference Section -->
+    <section id="difference" class="difference">
 
-  <!-- Background Slider -->
-  <div id="bgSlider" class="bg-slide"></div>
+      <!-- Background Slider -->
+      <div id="bgSlider" class="bg-slide"></div>
 
-  <div class="container">
+      <div class="container">
 
-    <div class="difference__heading">
-      <div class="difference__topline">Not All Shilajit Is Equal.</div>
-      <div class="difference__script">Here’s The Difference.</div>
-    </div>
-
-    <div class="diffGrid">
-
-      <!-- LEFT TALL CARD -->
-      <article class="diffCard diffCard--tall reveal-left"
-        style="background-image:url('assets/sh1.jpeg');">
-        <div class="diffCard__shade"></div>
-        <div class="diffCard__content">
-          <h3>Altitude-Certified Sourcing</h3>
-          <p>
-            Harvested exclusively from high altitudes where pollution can’t reach and purity is guaranteed.
-          </p>
+        <div class="difference__heading">
+          <div class="difference__topline">Not All Shilajit Is Equal.</div>
+          <div class="difference__script">Here’s The Difference.</div>
         </div>
-      </article>
 
-      <!-- TOP RIGHT CARD -->
-      <article class="diffCard reveal-right stagger-1"
-        style="background-image:url('assets/sh2.jpeg');">
-        <div class="diffCard__shade"></div>
-        <div class="diffCard__content">
-          <h3>Triple-Purified &amp; Lab-Tested</h3>
-          <p>
-            Every batch undergoes multi-stage purification and independent third-party testing.
-          </p>
-          <!-- <a class="diffCard__link" href="#lab">See lab results</a> -->
+        <div class="diffGrid">
+
+          <!-- LEFT TALL CARD -->
+          <article class="diffCard diffCard--tall reveal-left" style="background-image:url('assets/sh1.jpeg');">
+            <div class="diffCard__shade"></div>
+            <div class="diffCard__content">
+              <h3>Altitude-Certified Sourcing</h3>
+              <p>
+                Harvested exclusively from high altitudes where pollution can’t reach and purity is guaranteed.
+              </p>
+            </div>
+          </article>
+
+          <!-- TOP RIGHT CARD -->
+          <article class="diffCard reveal-right stagger-1" style="background-image:url('assets/sh2.jpeg');">
+            <div class="diffCard__shade"></div>
+            <div class="diffCard__content">
+              <h3>Triple-Purified &amp; Lab-Tested</h3>
+              <p>
+                Every batch undergoes multi-stage purification and independent third-party testing.
+              </p>
+              <!-- <a class="diffCard__link" href="#lab">See lab results</a> -->
+            </div>
+          </article>
+
+          <!-- BOTTOM RIGHT CARD -->
+          <article class="diffCard reveal-right stagger-2" style="background-image:url('assets/sh3.jpeg');">
+            <div class="diffCard__shade"></div>
+            <div class="diffCard__content">
+              <h3>Formulated by Ayurvedic Experts</h3>
+              <p>
+                Developed with researchers who study traditional Himalayan medicine and modern bioavailability science.
+              </p>
+            </div>
+          </article>
+
         </div>
-      </article>
 
-      <!-- BOTTOM RIGHT CARD -->
-      <article class="diffCard reveal-right stagger-2"
-        style="background-image:url('assets/sh3.jpeg');">
-        <div class="diffCard__shade"></div>
-        <div class="diffCard__content">
-          <h3>Formulated by Ayurvedic Experts</h3>
-          <p>
-            Developed with researchers who study traditional Himalayan medicine and modern bioavailability science.
-          </p>
-        </div>
-      </article>
-
-    </div>
-
-  </div>
-</section>
+      </div>
+    </section>
 
 
     <!-- Best sellers (dark slider feel) -->
@@ -238,7 +240,7 @@
                 <li>Clinically-dosed ingredients</li>
                 <li>Feel better performance, focus</li>
               </ul>
-              <a class="btn btn--gold btn--block" href="#contact">LEARN MORE</a>
+              <a class="btn btn--gold btn--block" href="products.html">SHOP NOW</a>
             </div>
           </article>
 
@@ -257,7 +259,7 @@
                 <li>Addresses imbalance at the source</li>
                 <li>Better energy, clarity/li>
               </ul>
-              <a class="btn btn--gold btn--block" href="#contact">LEARN MORE</a>
+              <a class="btn btn--gold btn--block" href="products.html">SHOP NOW</a>
             </div>
           </article>
 
@@ -275,7 +277,7 @@
                 <li>Natural energy and mental</li>
                 <li>Lab certifications verify purity</li>
               </ul>
-              <a class="btn btn--gold btn--block" href="#contact">LEARN MORE</a>
+              <a class="btn btn--gold btn--block" href="products.html">SHOP NOW</a>
             </div>
           </article>
 
@@ -292,7 +294,7 @@
                 <li>All-in-one daily foundation</li>
                 <li>Third-party tested batches</li>
               </ul>
-              <a class="btn btn--gold btn--block" href="#contact">LEARN MORE</a>
+              <a class="btn btn--gold btn--block" href="products.html">SHOP NOW</a>
             </div>
           </article>
         </div>
@@ -376,19 +378,19 @@
           <div class="bundleCard">
             <div class="bundleCard__title">Power Couple</div>
             <div class="bundleCard__img" style="background-image:url('./assets/sh6.jpeg');"></div>
-            <a class="btn btn--gold btn--wide" href="#contact">LEARN MORE</a>
+            <a class="btn btn--gold btn--wide" href="products.html">SHOP NOW</a>
           </div>
 
           <div class="bundleCard">
             <div class="bundleCard__title">Testosterone Titan</div>
             <div class="bundleCard__img" style="background-image:url('./assets/sh7.jpeg');"></div>
-            <a class="btn btn--gold btn--wide" href="#contact">LEARN MORE</a>
+            <a class="btn btn--gold btn--wide" href="products.html">SHOP NOW</a>
           </div>
 
           <div class="bundleCard">
             <div class="bundleCard__title">Feminine Revival</div>
             <div class="bundleCard__img" style="background-image:url('./assets/sh8.jpeg');"></div>
-            <a class="btn btn--gold btn--wide" href="#contact">LEARN MORE</a>
+            <a class="btn btn--gold btn--wide" href="products.html">SHOP NOW</a>
           </div>
         </div>
       </div>
@@ -576,6 +578,7 @@
 
         <div class="footCol">
           <h4>Store</h4>
+<<<<<<< Updated upstream
         
           <a href="#bestsellers">Shop</a>
         
@@ -636,6 +639,14 @@
               </a>
             </div>
         
+=======
+          <a href="products.html">Shop</a>
+          <a href="admin-history.html" style="opacity: 0.5; font-size: 10px; margin-top: 10px;">Sales History
+            (Admin)</a>
+          <div style="display: flex;flex-direction: column;">
+            <span>078-286-451</span>
+            <a href="mailto:mulliriantik1961@gmail.com" class="email-link">mulliriantik1961@gmail.com</span>
+>>>>>>> Stashed changes
           </div>
         </div>
 
@@ -670,6 +681,7 @@
     const animatedElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .scale-up');
     animatedElements.forEach(el => observer.observe(el));
   </script>
+  <script src="cart.js"></script>
 </body>
 
 <script>
@@ -681,13 +693,13 @@
       mobileNav.classList.toggle("open");
     });
 
-    document.querySelectorAll(".mnav a").forEach(function(link){
-      link.addEventListener("click", function(){
+    document.querySelectorAll(".mnav a").forEach(function (link) {
+      link.addEventListener("click", function () {
         mobileNav.classList.remove("open");
       });
     });
 
-    window.addEventListener("resize", function(){
+    window.addEventListener("resize", function () {
       if (window.innerWidth > 900) {
         mobileNav.classList.remove("open");
       }

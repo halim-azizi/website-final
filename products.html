@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Products - Mulliri Antik</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 60px 0;
+        }
+
+        .product-page-title {
+            text-align: center;
+            padding-top: 60px;
+            font-size: 48px;
+            font-weight: 900;
+            color: #fff;
+            background: #050506;
+            margin: 0;
+        }
+
+        .product-page-subtitle {
+            text-align: center;
+            color: var(--muted);
+            background: #050506;
+            padding-bottom: 40px;
+            margin: 0;
+        }
+
+        .products-section {
+            background: #050506;
+            min-height: 80vh;
+        }
+
+        .pCard {
+            flex: none;
+            /* Reset carousel flex */
+            width: 100%;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .pCard:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+
+        .pCard__media {
+            height: 250px;
+        }
+
+        .product-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn--cart {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn--cart:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar">
+        <div class="container topbar__inner">
+            <div class="topbar__left">
+                <span class="stars">★★★★★</span>
+                <span class="topbar__text">PREMIUM LAB-TESTED SHILAJIT</span>
+            </div>
+            <div class="topbar__right">
+                <span class="dot">•</span>
+                <span class="topbar__text">FREE SHIPPING OVER 90€</span>
+                <a class="topbar__link" href="products.html">SHOP NOW</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container header__inner">
+            <nav class="nav nav--left">
+                <a href="products.html">SHOP</a>
+                <a href="index.html#bundles">BUNDLES</a>
+                <a href="index.html#difference">OUR SHILAJIT</a>
+                <a href="index.html#know">KNOW US</a>
+                <a href="index.html#rewards">REWARDS</a>
+            </nav>
+            <a class="logo" href="index.html">
+                <img style="width:70px;" src="assets/mulliri-png.png" />
+            </a>
+            <div class="header__right">
+                <a href="cart.html" class="iconbtn cart-btn" id="cartBtn">
+                    <span class="ico ico-bag"></span>
+                    <span class="badge" id="cartCount">0</span>
+                </a>
+            </div>
+            <button class="mnav__burger" id="menuToggle" aria-label="Open Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mnav" id="mobileNav">
+            <div class="container mnav__inner">
+                <a href="products.html">SHOP</a>
+                <a href="index.html#bundles">BUNDLES</a>
+                <a href="index.html#difference">OUR SHILAJIT</a>
+                <a href="index.html#know">KNOW US</a>
+                <a href="index.html#rewards">REWARDS</a>
+                <a class="btn btn--gold" href="index.html#contact">CONTACT</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="products-section">
+            <h1 class="product-page-title">All Products</h1>
+            <p class="product-page-subtitle">Purity and Potency, Delivered to Your Doorstep.</p>
+
+            <div class="container">
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <article class="pCard">
+                        <div class="pCard__media" style="background-image:url('./assets/sh1.jpeg');">
+                            <div class="pillRed">Best Seller</div>
+                        </div>
+                        <div class="pCard__body">
+                            <div class="pCard__title">Prime Shilajit</div>
+                            <div class="pCard__sub">30g Resin - Vitality & Strength</div>
+                            <div class="pCard__price"
+                                style="font-size: 24px; font-weight: 900; color: var(--gold); margin: 10px 0;">49.99€
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn--cart"
+                                    onclick="addToCart('p1', 'Prime Shilajit', 49.99, './assets/sh1.jpeg')">Add to
+                                    Cart</button>
+                                <button class="btn btn--gold"
+                                    onclick="buyNow('p1', 'Prime Shilajit', 49.99, './assets/sh1.jpeg')">Buy
+                                    Now</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 2 -->
+                    <article class="pCard">
+                        <div class="pCard__media" style="background-image:url('./assets/sh2.jpeg');"></div>
+                        <div class="pCard__body">
+                            <div class="pCard__title">Flourish Shilajit</div>
+                            <div class="pCard__sub">30g Resin - Women's Support</div>
+                            <div class="pCard__price"
+                                style="font-size: 24px; font-weight: 900; color: var(--gold); margin: 10px 0;">54.99€
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn--cart"
+                                    onclick="addToCart('p2', 'Flourish Shilajit', 54.99, './assets/sh2.jpeg')">Add to
+                                    Cart</button>
+                                <button class="btn btn--gold"
+                                    onclick="buyNow('p2', 'Flourish Shilajit', 54.99, './assets/sh2.jpeg')">Buy
+                                    Now</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 3 -->
+                    <article class="pCard">
+                        <div class="pCard__media" style="background-image:url('./assets/sh3.jpeg');"></div>
+                        <div class="pCard__body">
+                            <div class="pCard__title">Himalayan Pure</div>
+                            <div class="pCard__sub">50g Resin - Maximum Potency</div>
+                            <div class="pCard__price"
+                                style="font-size: 24px; font-weight: 900; color: var(--gold); margin: 10px 0;">79.99€
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn--cart"
+                                    onclick="addToCart('p3', 'Himalayan Pure', 79.99, './assets/sh3.jpeg')">Add to
+                                    Cart</button>
+                                <button class="btn btn--gold"
+                                    onclick="buyNow('p3', 'Himalayan Pure', 79.99, './assets/sh3.jpeg')">Buy
+                                    Now</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 4 -->
+                    <article class="pCard">
+                        <div class="pCard__media" style="background-image:url('./assets/sh4.jpg');"></div>
+                        <div class="pCard__body">
+                            <div class="pCard__title">Altai Shilajit</div>
+                            <div class="pCard__sub">20g Resin - Traditional Sourced</div>
+                            <div class="pCard__price"
+                                style="font-size: 24px; font-weight: 900; color: var(--gold); margin: 10px 0;">39.99€
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn--cart"
+                                    onclick="addToCart('p4', 'Altai Shilajit', 39.99, './assets/sh4.jpg')">Add to
+                                    Cart</button>
+                                <button class="btn btn--gold"
+                                    onclick="buyNow('p4', 'Altai Shilajit', 39.99, './assets/sh4.jpg')">Buy Now</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 5 -->
+                    <article class="pCard">
+                        <div class="pCard__media" style="background-image:url('./assets/sh6.jpeg');"></div>
+                        <div class="pCard__body">
+                            <div class="pCard__title">Power Couple Bundle</div>
+                            <div class="pCard__sub">2x 30g Resin - Save 15%</div>
+                            <div class="pCard__price"
+                                style="font-size: 24px; font-weight: 900; color: var(--gold); margin: 10px 0;">84.99€
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn--cart"
+                                    onclick="addToCart('p5', 'Power Couple Bundle', 84.99, './assets/sh6.jpeg')">Add to
+                                    Cart</button>
+                                <button class="btn btn--gold"
+                                    onclick="buyNow('p5', 'Power Couple Bundle', 84.99, './assets/sh6.jpeg')">Buy
+                                    Now</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 6 -->
+                    <article class="pCard">
+                        <div class="pCard__media" style="background-image:url('./assets/sh7.jpeg');"></div>
+                        <div class="pCard__body">
+                            <div class="pCard__title">Testosterone Titan</div>
+                            <div class="pCard__sub">Shilajit + Ashwagandha Combo</div>
+                            <div class="pCard__price"
+                                style="font-size: 24px; font-weight: 900; color: var(--gold); margin: 10px 0;">64.99€
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn--cart"
+                                    onclick="addToCart('p6', 'Testosterone Titan', 64.99, './assets/sh7.jpeg')">Add to
+                                    Cart</button>
+                                <button class="btn btn--gold"
+                                    onclick="buyNow('p6', 'Testosterone Titan', 64.99, './assets/sh7.jpeg')">Buy
+                                    Now</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 7 -->
+                    <article class="pCard">
+                        <div class="pCard__media" style="background-image:url('./assets/sh8.jpeg');"></div>
+                        <div class="pCard__body">
+                            <div class="pCard__title">Feminine Revival</div>
+                            <div class="pCard__sub">Shilajit + Shatavari Combo</div>
+                            <div class="pCard__price"
+                                style="font-size: 24px; font-weight: 900; color: var(--gold); margin: 10px 0;">69.99€
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn--cart"
+                                    onclick="addToCart('p7', 'Feminine Revival', 69.99, './assets/sh8.jpeg')">Add to
+                                    Cart</button>
+                                <button class="btn btn--gold"
+                                    onclick="buyNow('p7', 'Feminine Revival', 69.99, './assets/sh8.jpeg')">Buy
+                                    Now</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 8 -->
+                    <article class="pCard">
+                        <div class="pCard__media" style="background-image:url('./assets/sh9.jpeg');"></div>
+                        <div class="pCard__body">
+                            <div class="pCard__title">Artisan Reserve</div>
+                            <div class="pCard__sub">High-Altitude Harvested</div>
+                            <div class="pCard__price"
+                                style="font-size: 24px; font-weight: 900; color: var(--gold); margin: 10px 0;">99.99€
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn--cart"
+                                    onclick="addToCart('p8', 'Artisan Reserve', 99.99, './assets/sh9.jpeg')">Add to
+                                    Cart</button>
+                                <button class="btn btn--gold"
+                                    onclick="buyNow('p8', 'Artisan Reserve', 99.99, './assets/sh9.jpeg')">Buy
+                                    Now</button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__top">
+            <div class="footBrand">
+                <div class="footSeal" style="background-image:url('./assets/mulliri-png.png');"></div>
+                <p>We source and deliver authentic shilajit of the highest quality.</p>
+            </div>
+            <div class="footCol">
+                <h4>About</h4>
+                <a href="index.html#difference">Our Shilajit</a>
+                <a href="index.html#contact">Contact us</a>
+            </div>
+            <div class="footCol">
+                <h4>Store</h4>
+                <a href="products.html">Shop</a>
+                <a href="admin-history.html" style="opacity: 0.5; font-size: 10px; margin-top: 10px;">Sales History
+                    (Admin)</a>
+                <div style="display: flex;flex-direction: column;">
+                    <span>078-286-451</span>
+                    <a href="mailto:mulliriantik1961@gmail.com" class="email-link">mulliriantik1961@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer__bottom">
+            <span>© <span id="y"></span> Mulliri Antik</span>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script>
+        document.getElementById('y').textContent = new Date().getFullYear();
+
+        // Mobile menu logic
+        const toggleBtn = document.getElementById("menuToggle");
+        const mobileNav = document.getElementById("mobileNav");
+        toggleBtn.addEventListener("click", () => mobileNav.classList.toggle("open"));
+    </script>
+</body>
+
+</html>
