@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Admin Login - Mulliri Antik</title>
+  <meta name="robots" content="noindex, nofollow" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,34 +27,49 @@
     .login-card {
       background: #131316;
       border-radius: 20px;
-      padding: 40px;
+      padding: 48px 40px;
       width: 100%;
-      max-width: 400px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      max-width: 420px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
     }
 
     .login-header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 36px;
     }
 
     .login-header img {
       width: 80px;
-      margin: 0 auto 15px;
+      margin: 0 auto 16px;
+      display: block;
+    }
+
+    .login-header .admin-badge {
+      display: inline-block;
+      background: rgba(200, 160, 80, 0.12);
+      border: 1px solid rgba(200, 160, 80, 0.3);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
     }
 
     .login-header h1 {
       color: #fff;
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 800;
-      margin: 0;
+      margin: 0 0 6px;
     }
 
     .login-header p {
       color: var(--muted);
       font-size: 14px;
-      margin-top: 5px;
+      margin: 0;
     }
 
     .form-group {
@@ -62,39 +78,92 @@
 
     .form-group label {
       display: block;
-      color: #fff;
-      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 13px;
       font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       margin-bottom: 8px;
     }
 
     .form-group input {
       width: 100%;
       background: #1a1a1e;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       color: #fff;
-      padding: 12px 16px;
+      padding: 14px 16px;
       border-radius: 10px;
       font-family: inherit;
-      transition: border-color 0.2s;
+      font-size: 15px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-sizing: border-box;
     }
 
     .form-group input:focus {
       outline: none;
       border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(200, 160, 80, 0.12);
     }
 
     .login-btn {
       width: 100%;
       margin-top: 10px;
+      padding: 15px;
+      font-size: 15px;
+      letter-spacing: 0.08em;
     }
 
     .error-msg {
-      color: #ff4d4d;
+      color: #ff5555;
       font-size: 13px;
-      margin-top: 15px;
+      margin-top: 16px;
       text-align: center;
       display: none;
+      background: rgba(255, 85, 85, 0.08);
+      border: 1px solid rgba(255, 85, 85, 0.2);
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 24px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .back-link a {
+      color: var(--gold);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    .loading-dots::after {
+      content: '';
+      animation: dots 1.2s steps(3, end) infinite;
+    }
+
+    @keyframes dots {
+      0% {
+        content: '';
+      }
+
+      33% {
+        content: '.';
+      }
+
+      66% {
+        content: '..';
+      }
+
+      100% {
+        content: '...';
+      }
     }
   </style>
 </head>
@@ -106,27 +175,28 @@
         <a href="index.html">
           <img src="assets/mulliri-png.png" alt="Mulliri Antik Logo" />
         </a>
-        <h1>Admin Access</h1>
-        <p>Enter your credentials to manage sales</p>
+        <div class="admin-badge">🔐 Admin Area</div>
+        <h1>Welcome Back</h1>
+        <p>Sign in to access the sales dashboard</p>
       </div>
 
       <form id="loginForm">
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" required placeholder="admin@mulliriantik.com">
+          <input type="email" id="email" required placeholder="admin@mulliriantik.com" autocomplete="email">
         </div>
 
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" required placeholder="••••••••">
+          <input type="password" id="password" required placeholder="••••••••" autocomplete="current-password">
         </div>
 
-        <button type="submit" class="btn btn--gold login-btn">LOG IN</button>
+        <button type="submit" class="btn btn--gold login-btn" id="submitBtn">SIGN IN</button>
         <div id="errorMsg" class="error-msg"></div>
       </form>
 
-      <div class="footer-link" style="text-align: center; margin-top: 20px; font-size: 14px; color: var(--muted);">
-        Don't have an account? <a href="admin-signup.html" style="color: var(--gold); font-weight: 700;">Sign Up</a>
+      <div class="back-link">
+        <a href="index.html">← Back to Store</a>
       </div>
     </div>
   </main>
@@ -134,13 +204,23 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <script>
+    // If already logged in, redirect immediately
+    window.supabaseClient.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        window.location.href = 'admin-history.html';
+      }
+    });
+
     document.getElementById('loginForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      const email = document.getElementById('email').value;
+      const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value;
       const errorMsg = document.getElementById('errorMsg');
+      const submitBtn = document.getElementById('submitBtn');
 
       errorMsg.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'SIGNING IN<span class="loading-dots"></span>';
 
       try {
         const { data, error } = await window.supabaseClient.auth.signInWithPassword({
@@ -150,11 +230,12 @@
 
         if (error) throw error;
 
-        // Redirect on success
         window.location.href = 'admin-history.html';
       } catch (error) {
-        errorMsg.textContent = error.message;
+        errorMsg.textContent = '❌ ' + (error.message || 'Invalid credentials. Please try again.');
         errorMsg.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'SIGN IN';
       }
     });
   </script>

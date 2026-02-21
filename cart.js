@@ -48,8 +48,7 @@ function updateCartCount() {
     }
 }
 
-function recordTransaction(cart, total) {
-    const transactions = JSON.parse(localStorage.getItem('mulliri_transactions') || '[]');
+async function recordTransaction(cart, total) {
     const newTransaction = {
         id: 'ORD-' + Math.random().toString(36).substr(2, 9).toUpperCase(),
         date: new Date().toISOString(),
@@ -57,8 +56,27 @@ function recordTransaction(cart, total) {
         total: total,
         status: 'Completed'
     };
+
+    // Save to Supabase if client is available
+    if (window.supabaseClient) {
+        try {
+            const { error } = await window.supabaseClient
+                .from('transactions')
+                .insert([newTransaction]);
+
+            if (error) {
+                console.warn('Supabase insert error:', error.message);
+            }
+        } catch (err) {
+            console.warn('Could not save to Supabase:', err);
+        }
+    }
+
+    // Also keep a local copy as fallback
+    const transactions = JSON.parse(localStorage.getItem('mulliri_transactions') || '[]');
     transactions.unshift(newTransaction);
     localStorage.setItem('mulliri_transactions', JSON.stringify(transactions));
+
     localStorage.removeItem('mulliri_cart');
     updateCartCount();
 }

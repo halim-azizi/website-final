@@ -642,8 +642,8 @@
             </div>
 
 
-            <a href="admin-history.html" style="opacity: 0.5; font-size: 10px; margin-top: 10px;">
-              Sales History (Admin)</a>
+            <a href="admin-history.html" class="admin-only"
+              style="display: none; opacity: 0.5; font-size: 10px; margin-top: 10px;">Sales History (Admin)</a>
           </div>
 
         </div>
@@ -687,12 +687,52 @@
       const loginBtn = document.getElementById('loginBtn');
 
       if (session) {
+        // Show admin-only links
         adminLinks.forEach(link => link.style.display = 'block');
+
+        // Transform the login icon into admin controls
         if (loginBtn) {
-          loginBtn.href = 'admin-history.html'; // Or logout? User asked for logo on right.
+          loginBtn.innerHTML = '<span style="font-size:11px; font-weight:800; letter-spacing:0.04em;">ADMIN ▾</span>';
+          loginBtn.href = 'admin-history.html';
+          loginBtn.title = 'Go to admin panel';
+        }
+
+        // Inject a logout button next to cart icon if not already there
+        if (!document.getElementById('logoutBtn')) {
+          const headerRight = loginBtn ? loginBtn.parentElement : null;
+          if (headerRight) {
+            const logoutBtn = document.createElement('button');
+            logoutBtn.id = 'logoutBtn';
+            logoutBtn.title = 'Sign out';
+            logoutBtn.innerHTML = '⎋';
+            logoutBtn.style.cssText = `
+              background: rgba(255,85,85,0.12);
+              border: 1px solid rgba(255,85,85,0.3);
+              color: #ff6666;
+              width: 36px; height: 36px;
+              border-radius: 50%;
+              cursor: pointer;
+              font-size: 16px;
+              display: flex; align-items: center; justify-content: center;
+              transition: background 0.2s;
+              margin-left: 4px;
+            `;
+            logoutBtn.onmouseover = () => logoutBtn.style.background = 'rgba(255,85,85,0.25)';
+            logoutBtn.onmouseout = () => logoutBtn.style.background = 'rgba(255,85,85,0.12)';
+            logoutBtn.addEventListener('click', async () => {
+              await window.supabaseClient.auth.signOut();
+              window.location.reload();
+            });
+            headerRight.appendChild(logoutBtn);
+          }
         }
       } else {
         adminLinks.forEach(link => link.style.display = 'none');
+        // Ensure the login button is in normal state
+        if (loginBtn) {
+          loginBtn.innerHTML = '<span class="ico ico-user"></span>';
+          loginBtn.href = 'admin-login.html';
+        }
       }
     }
 
