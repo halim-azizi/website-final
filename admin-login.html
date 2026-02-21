@@ -99,66 +99,105 @@
   </style>
 </head>
 
-<body>
-
-  <main class="login-section">
-    <div class="login-card">
-      <div class="login-header">
-        <a href="index.html">
-          <img src="assets/mulliri-png.png" alt="Mulliri Antik Logo" />
-        </a>
-        <h1>Admin Access</h1>
-        <p>Enter your credentials to manage sales</p>
-      </div>
-
-      <form id="loginForm">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" required placeholder="admin@mulliriantik.com">
-        </div>
-
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" required placeholder="••••••••">
-        </div>
-
-        <button type="submit" class="btn btn--gold login-btn">LOG IN</button>
-        <div id="errorMsg" class="error-msg"></div>
-      </form>
-
-      <div class="footer-link" style="text-align: center; margin-top: 20px; font-size: 14px; color: var(--muted);">
-        Don't have an account? <a href="admin-signup.html" style="color: var(--gold); font-weight: 700;">Sign Up</a>
-      </div>
+<header class="header">
+  <div class="container header__inner">
+    <nav class="nav nav--left">
+      <a href="products.html">SHOP</a>
+      <a href="index.html#bundles">BUNDLES</a>
+      <a href="index.html#difference">OUR SHILAJIT</a>
+    </nav>
+    <a class="logo" href="index.html">
+      <img style="width:70px;" src="assets/mulliri-png.png" />
+    </a>
+    <div class="header__right">
+      <a href="admin-login.html" class="iconbtn login-btn" id="loginBtn">
+        <span class="ico ico-user"></span>
+      </a>
     </div>
-  </main>
+    <!-- MOBILE BURGER -->
+    <button class="mnav__burger" id="menuToggle" aria-label="Open Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="supabase-config.js"></script>
-  <script>
-    document.getElementById('loginForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const errorMsg = document.getElementById('errorMsg');
+  <!-- MOBILE DROPDOWN -->
+  <div class="mnav" id="mobileNav">
+    <div class="container mnav__inner">
+      <a href="index.html">HOME</a>
+      <a href="products.html">STORE</a>
+      <a class="btn btn--gold" href="index.html#contact">CONTACT</a>
+    </div>
+  </div>
+</header>
 
-      errorMsg.style.display = 'none';
+<main class="login-section">
+  <div class="login-card">
+    <div class="login-header">
+      <a href="index.html">
+        <img src="assets/mulliri-png.png" alt="Mulliri Antik Logo" />
+      </a>
+      <h1>Admin Access</h1>
+      <p>Enter your credentials to manage sales</p>
+    </div>
 
-      try {
-        const { data, error } = await window.supabaseClient.auth.signInWithPassword({
-          email,
-          password
-        });
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" required placeholder="admin@mulliriantik.com">
+      </div>
 
-        if (error) throw error;
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required placeholder="••••••••">
+      </div>
 
-        // Redirect on success
-        window.location.href = 'admin-history.html';
-      } catch (error) {
-        errorMsg.textContent = error.message;
-        errorMsg.style.display = 'block';
-      }
-    });
-  </script>
+      <button type="submit" class="btn btn--gold login-btn">LOG IN</button>
+      <div id="errorMsg" class="error-msg"></div>
+    </form>
+
+    <div class="footer-link" style="text-align: center; margin-top: 20px; font-size: 14px; color: var(--muted);">
+      Don't have an account? <a href="admin-signup.html" style="color: var(--gold); font-weight: 700;">Sign Up</a>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script>
+  // Mobile menu logic
+  const toggleBtn = document.getElementById("menuToggle");
+  const mobileNav = document.getElementById("mobileNav");
+  if (toggleBtn && mobileNav) {
+    toggleBtn.addEventListener("click", () => mobileNav.classList.toggle("open"));
+  }
+</script>
+<script>
+  document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const errorMsg = document.getElementById('errorMsg');
+
+    errorMsg.style.display = 'none';
+
+    try {
+      const { data, error } = await window.supabaseClient.auth.signInWithPassword({
+        email,
+        password
+      });
+
+      if (error) throw error;
+
+      // Redirect on success
+      window.location.href = 'admin-history.html';
+    } catch (error) {
+      errorMsg.textContent = error.message;
+      errorMsg.style.display = 'block';
+    }
+  });
+</script>
 </body>
 
 </html>

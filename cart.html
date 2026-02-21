@@ -34,45 +34,45 @@
         }
 
         /* 📱 Mobile Responsive Fix */
-@media (max-width: 768px) {
+        @media (max-width: 768px) {
 
-.cart-container {
-    grid-template-columns: 1fr;
-}
+            .cart-container {
+                grid-template-columns: 1fr;
+            }
 
-.cart-item {
-    grid-template-columns: 80px 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 15px;
-}
+            .cart-item {
+                grid-template-columns: 80px 1fr;
+                grid-template-rows: auto auto auto;
+                gap: 15px;
+            }
 
-.cart-item img {
-    width: 80px;
-    height: 80px;
-}
+            .cart-item img {
+                width: 80px;
+                height: 80px;
+            }
 
-.cart-item-info {
-    grid-column: 2 / 3;
-}
+            .cart-item-info {
+                grid-column: 2 / 3;
+            }
 
-.cart-item-quantity {
-    grid-column: 1 / 3;
-    justify-content: flex-start;
-    margin-top: 10px;
-}
+            .cart-item-quantity {
+                grid-column: 1 / 3;
+                justify-content: flex-start;
+                margin-top: 10px;
+            }
 
-.cart-item-price {
-    grid-column: 1 / 3;
-    text-align: right;
-    font-size: 20px;
-    margin-top: 5px;
-}
+            .cart-item-price {
+                grid-column: 1 / 3;
+                text-align: right;
+                font-size: 20px;
+                margin-top: 5px;
+            }
 
-.cart-summary {
-    margin-top: 30px;
-}
+            .cart-summary {
+                margin-top: 30px;
+            }
 
-}
+        }
 
         .cart-items {
             display: flex;
@@ -195,10 +195,30 @@
                 <img style="width:70px;" src="assets/mulliri-png.png" />
             </a>
             <div class="header__right">
-                <a href="cart.html" class="iconbtn cart-btn">
+                <a href="admin-login.html" class="iconbtn login-btn" id="loginBtn">
+                    <span class="ico ico-user"></span>
+                </a>
+                <a href="cart.html" class="iconbtn cart-btn" id="cartBtn">
                     <span class="ico ico-bag"></span>
                     <span class="badge" id="cartCount">0</span>
                 </a>
+            </div>
+            <!-- MOBILE BURGER -->
+            <button class="mnav__burger" id="menuToggle" aria-label="Open Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- MOBILE DROPDOWN -->
+        <div class="mnav" id="mobileNav">
+            <div class="container mnav__inner">
+                <a href="products.html">SHOP</a>
+                <a href="index.html#bundles">BUNDLES</a>
+                <a href="index.html#difference">OUR SHILAJIT</a>
+                <a href="admin-history.html" class="admin-only" style="display: none;">SALES HISTORY (ADMIN)</a>
+                <a class="btn btn--gold" href="index.html#contact">CONTACT</a>
             </div>
         </div>
     </header>
@@ -229,6 +249,32 @@
     </footer>
 
     <script src="cart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script>
+        async function checkAdmin() {
+            const { data: { session } } = await window.supabaseClient.auth.getSession();
+            const adminLinks = document.querySelectorAll('.admin-only');
+            const loginBtn = document.getElementById('loginBtn');
+
+            if (session) {
+                adminLinks.forEach(link => link.style.display = 'block');
+                if (loginBtn) {
+                    loginBtn.href = 'admin-history.html';
+                }
+            } else {
+                adminLinks.forEach(link => link.style.display = 'none');
+            }
+        }
+        document.addEventListener('DOMContentLoaded', checkAdmin);
+
+        // Mobile menu logic
+        const toggleBtn = document.getElementById("menuToggle");
+        const mobileNav = document.getElementById("mobileNav");
+        if (toggleBtn && mobileNav) {
+            toggleBtn.addEventListener("click", () => mobileNav.classList.toggle("open"));
+        }
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             renderCart();

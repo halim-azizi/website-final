@@ -114,7 +114,31 @@
                 <img style="width:70px;" src="assets/mulliri-png.png" />
             </a>
             <div class="header__right">
-                <span style="font-size: 12px; font-weight: 800; color: var(--gold);">ADMIN PANEL</span>
+                <a href="admin-login.html" class="iconbtn login-btn" id="loginBtn">
+                    <span class="ico ico-user"></span>
+                </a>
+                <a href="cart.html" class="iconbtn cart-btn">
+                    <span class="ico ico-bag"></span>
+                    <span class="badge" id="cartCount">0</span>
+                </a>
+                <span style="font-size: 10px; font-weight: 800; color: var(--gold); margin-left: 8px;"
+                    class="desktop-only-text">ADMIN PANEL</span>
+            </div>
+            <!-- MOBILE BURGER -->
+            <button class="mnav__burger" id="menuToggle" aria-label="Open Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- MOBILE DROPDOWN -->
+        <div class="mnav" id="mobileNav">
+            <div class="container mnav__inner">
+                <a href="index.html">DASHBOARD</a>
+                <a href="products.html">STORE</a>
+                <a href="admin-history.html">SALES HISTORY</a>
+                <a class="btn btn--gold" href="index.html#contact">CONTACT</a>
             </div>
         </div>
     </header>
@@ -157,6 +181,29 @@
     </main>
 
     <script src="cart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script>
+        async function checkAuth() {
+            const { data: { session } } = await window.supabaseClient.auth.getSession();
+            if (!session) {
+                window.location.href = 'admin-login.html';
+                return;
+            }
+            const loginBtn = document.getElementById('loginBtn');
+            if (loginBtn) {
+                loginBtn.href = 'admin-history.html';
+            }
+
+            // Mobile menu logic
+            const toggleBtn = document.getElementById("menuToggle");
+            const mobileNav = document.getElementById("mobileNav");
+            if (toggleBtn && mobileNav) {
+                toggleBtn.addEventListener("click", () => mobileNav.classList.toggle("open"));
+            }
+        }
+        document.addEventListener('DOMContentLoaded', checkAuth);
+    </script>
     <script>
         function getTransactions() {
             return JSON.parse(localStorage.getItem('mulliri_transactions') || '[]').sort((a, b) => new Date(b.date) - new Date(a.date));
