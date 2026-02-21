@@ -43,6 +43,7 @@
         <a href="#difference">OUR SHILAJIT</a>
         <a href="#know">KNOW US</a>
         <a href="#rewards">REWARDS</a>
+        <a href="admin-history.html" class="admin-only" style="display: none;">SALES HISTORY (ADMIN)</a>
       </nav>
 
       <!-- CENTER LOGO -->
@@ -52,6 +53,9 @@
 
       <!-- RIGHT SIDE (Desktop only) -->
       <div class="header__right">
+        <a href="admin-login.html" class="iconbtn login-btn" id="loginBtn">
+          <span class="ico ico-user"></span>
+        </a>
         <a href="cart.html" class="iconbtn cart-btn" id="cartBtn">
           <span class="ico ico-bag"></span>
           <span class="badge" id="cartCount">0</span>
@@ -75,6 +79,7 @@
         <a href="#difference">OUR SHILAJIT</a>
         <a href="#know">KNOW US</a>
         <a href="#rewards">REWARDS</a>
+        <a href="admin-history.html" class="admin-only" style="display: none;">SALES HISTORY (ADMIN)</a>
         <a class="btn btn--gold" href="#contact">CONTACT</a>
       </div>
     </div>
@@ -673,6 +678,26 @@
     animatedElements.forEach(el => observer.observe(el));
   </script>
   <script src="cart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script>
+    async function checkAdmin() {
+      const { data: { session } } = await window.supabaseClient.auth.getSession();
+      const adminLinks = document.querySelectorAll('.admin-only');
+      const loginBtn = document.getElementById('loginBtn');
+
+      if (session) {
+        adminLinks.forEach(link => link.style.display = 'block');
+        if (loginBtn) {
+          loginBtn.href = 'admin-history.html'; // Or logout? User asked for logo on right.
+        }
+      } else {
+        adminLinks.forEach(link => link.style.display = 'none');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', checkAdmin);
+  </script>
 </body>
 
 <script>
